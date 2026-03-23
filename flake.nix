@@ -27,7 +27,7 @@
 
           # We pull the Makefile from the local 'files' folder
           preBuild = ''
-            cp ${.Makefile} Makefile
+            cp ${./Makefile} Makefile
           '';
 
           makeFlags = [
