@@ -12,7 +12,7 @@
         kernel = config.boot.kernelPackages.kernel;
         
         # 1. THE KERNEL MODULE DERIVATION
-        ntfsplus-mod = stdenv.mkDerivation {
+        ntfsplus-mod = pkgs.stdenv.mkDerivation {
           pname = "ntfsplus-module";
           version = "2026.02.07";
 
