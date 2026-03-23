@@ -24,14 +24,17 @@ While `ntfs3` (Paragon) was a step forward, it has faced significant maintenance
 ### 1. Add to your Flake inputs
 In your flake.nix, add this repository as an input:
 
+```
 inputs = {
   nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   ntfsplus.url = "github:cmspam/ntfsplus-flake";
 };
+```
 
 ### 2. Import the Module
 Include the module in your nixosSystem configuration:
 
+```
 outputs = { self, nixpkgs, ntfsplus, ... }: {
   nixosConfigurations.your-hostname = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
@@ -41,29 +44,37 @@ outputs = { self, nixpkgs, ntfsplus, ... }: {
     ];
   };
 };
+```
 
 ### 3. Enable in configuration.nix
 Once the module is imported, you can enable it:
 
+```
 { config, pkgs, ... }:
 {
   services.ntfsplus.enable = true;
 }
+```
 
 ---
 
 ## Verification
 
-After running nixos-rebuild switch, you can verify the driver is active:
+After running nixos-rebuild switch and rebooting, you can verify the driver is active:
 
 ### Check the Kernel Module
+```
+modprobe ntfs
 lsmod | grep ntfs
+```
 
 *Note: The module identifies as ntfs to maintain compatibility with standard mount commands, but it uses the ntfsplus implementation.*
 
 ### Check Utilities
 Verify the high-performance utilities are present:
+```
 which fsck.ntfs
+```
 
 ## Technical Implementation
 This flake pulls the latest linux-ntfs source and compiles it as an out-of-tree module. It:
