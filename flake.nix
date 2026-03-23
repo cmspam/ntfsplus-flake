@@ -14,12 +14,12 @@
         # 1. THE KERNEL MODULE DERIVATION
         ntfsplus-mod = pkgs.stdenv.mkDerivation {
           pname = "ntfsplus-module";
-          version = "2026.02.07";
+          version = "2026.03.03";
 
           src = pkgs.fetchFromGitHub {
             owner = "namjaejeon";
             repo = "linux-ntfs";
-            rev = "e6e7478";
+            rev = "6f6beff";
             hash = "sha256-7NmpG6a8PuY3p/vCtbKNXk/+Ys6t1qLTj9HHp413HLY=";
           };
 
