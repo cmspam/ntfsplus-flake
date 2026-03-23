@@ -20,7 +20,7 @@
             owner = "namjaejeon";
             repo = "linux-ntfs";
             rev = "6f6beff";
-            hash = "sha256-7NmpG6a8PuY3p/vCtbKNXk/+Ys6t1qLTj9HHp413HLY=";
+            hash = "sha256-Ogak6vCuFZyQEN9Tk+4CaXewbhRjkcOHzfBYZiAhFcY=";
           };
 
           nativeBuildInputs = kernel.moduleBuildDependencies;
